@@ -1,0 +1,11 @@
+Q: Should I use gpt-4o-mini or gpt-3.5 turbo?
+A: You must use gpt-3.5-turbo-0125, even if AI Proxy supports only gpt-4o-mini. Use OpenAI API directly.
+
+Q: How to get token count?
+A: Use a tokenizer like in Prof. Anand's lecture and multiply by the given rate.
+
+Q: Is pandas required for GA3 Q5?
+A: No, basic Python lists and loops are enough. Pandas is not required.
+
+Q: Is ChatGPT allowed for this assignment?
+A: You can use it for learning, but don’t copy-paste answers directly.
