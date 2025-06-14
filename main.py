@@ -28,3 +28,21 @@ async def ask(q: Question):
     answer = qa.run(q.question)
     return {"answer": answer, "links": []}
 
+import os
+from fastapi import FastAPI, Request, HTTPException
+from fastapi.responses import JSONResponse
+
+app = FastAPI()
+
+API_KEY = os.getenv("API_KEY")  # Loaded from Vercel environment
+
+@app.post("/ask")
+async def ask(request: Request):
+    if request.headers.get("x-api-key") != API_KEY:
+        raise HTTPException(status_code=403, detail="Forbidden")
+
+    data = await request.json()
+    question = data.get("question", "")
+    
+    # Dummy answer
+    return JSONResponse(content={"answer": f"Answer to: {question}"})
